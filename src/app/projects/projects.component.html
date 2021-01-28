@@ -1,0 +1,34 @@
+<h4 class="projects__title">Project by dzolotarova</h4>
+
+<div class="projects__wrapper">
+  <div class="projects-header">
+    <div class="projects-header__item">Name</div>
+    <div class="projects-header__item">Description</div>
+    <div class="projects-header__item">Created Date</div>
+    <div class="projects-header__item">Disabled</div>
+    <div class="projects-header__item">Fork</div>
+    <div class="projects-header__item">Open Issues</div>
+    <div class="projects-header__item">Language</div>
+    <div class="projects-header__item">Size</div>
+    <div class="projects-header__item">Watchers</div>
+  </div>
+
+  <div class="projects-row" *ngFor="let project of projects$ | async | mapProjects">
+    <div class="projects-row__item">{{ project.name }}</div>
+    <div class="projects-row__item">{{ project.description }}</div>
+    <div class="projects-row__item">{{ project.created_at | date }}</div>
+
+    <div class="projects-row__item">
+      <i *ngIf="project.disabled" class="fas fa-check"></i>
+    </div>
+
+    <div class="projects-row__item">
+      <i *ngIf="project.fork" class="fas fa-check"></i>
+    </div>
+
+    <div class="projects-row__item">{{ project.open_issues }}</div>
+    <div class="projects-row__item">{{ project.language }}</div>
+    <div class="projects-row__item">{{ project.size }}</div>
+    <div class="projects-row__item">{{ project.watchers }}</div>
+  </div>
+</div>
